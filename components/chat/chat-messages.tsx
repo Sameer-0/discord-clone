@@ -9,6 +9,7 @@ import { format } from "date-fns";
 
 import ChatItem from "./chat-item";
 import { useChatSocket } from "@/hooks/use-chat-socket";
+import { useChatScroll } from "@/hooks/use-chat-scroll";
 
 const DATE_FORMAT = "d MMM yyyy, HH:mm";
 
@@ -60,6 +61,14 @@ export default function ChatMessages({
     queryKey,
     addKey,
     updateKey
+  });
+
+  useChatScroll({
+    chatRef,
+    bottomRef,
+    shouldLoadMore: !isFetchingNextPage && !!hasNextPage,
+    count: data?.pages?.[0]?.items?.length ?? 0,
+    loadMore: fetchNextPage
   })
 
   if(status === 'loading') {
@@ -83,9 +92,6 @@ export default function ChatMessages({
       </div>
     )
   }
-
-
-
 
   return (
     <div ref={chatRef} className="flex-1 flex flex-col py-4 overflow-y-auto">

@@ -38,6 +38,7 @@ const NavigationItem = ({ id, name, imageUrl }: NavigationItemsProps) => {
         >
             <Image src={imageUrl} 
                 fill
+                sizes="100%"
                 alt="Channel"
             />
         </div>

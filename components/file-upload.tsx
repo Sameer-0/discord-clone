@@ -26,6 +26,7 @@ export const FileUpload = ({
                   fill
                   src={value}
                   alt="Upload"
+                  sizes="100%"
                   className="rounded-full"
                 />
                 <button

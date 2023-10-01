@@ -157,6 +157,7 @@ export default function ChatItem({
                 src={fileUrl}
                 alt={content}
                 fill
+                sizes="100%"
                 className="object-cover"
               />
             </a>
